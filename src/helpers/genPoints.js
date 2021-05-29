@@ -1,7 +1,7 @@
 export default (arr, { minX, minY, maxX, maxY }, max, min, maxAmount) => {
   arr = arr.map(item => (typeof item === "number" ? item : item.value));
   const minValue = min - 0.001;
-  const gridX = (maxX - minX) / (maxAmount - 1);
+  const gridX = (maxX - minX) / maxAmount - 0.9999;
   const gridY = (maxY - minY) / (max + 0.001 - minValue);
 
   return arr.map((value, index) => {

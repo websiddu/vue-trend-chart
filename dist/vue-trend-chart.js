@@ -321,7 +321,7 @@
 
     arr = arr.map(function (item) { return (typeof item === "number" ? item : item.value); });
     var minValue = min - 0.001;
-    var gridX = (maxX - minX) / (maxAmount - 1);
+    var gridX = (maxX - minX) / maxAmount - 0.9999;
     var gridY = (maxY - minY) / (max + 0.001 - minValue);
 
     return arr.map(function (value, index) {
