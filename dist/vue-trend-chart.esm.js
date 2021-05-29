@@ -245,7 +245,7 @@ var TrendChartLabels = {
                   "text",
                   {
                     attrs: {
-                      dy: this$1.xLabelHeight + 20,
+                      dy: this$1.xLabelHeight + 8,
                       "text-anchor": "middle"
                     }
                   },

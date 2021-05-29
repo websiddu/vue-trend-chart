@@ -98,7 +98,7 @@ export default {
                   "text",
                   {
                     attrs: {
-                      dy: this.xLabelHeight + 20,
+                      dy: this.xLabelHeight + 8,
                       "text-anchor": "middle"
                     }
                   },
