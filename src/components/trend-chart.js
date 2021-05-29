@@ -37,6 +37,14 @@ export default {
     interactive: {
       default: false,
       type: Boolean
+    },
+    w: {
+      default: null,
+      type: Number
+    },
+    h: {
+      default: null,
+      type: Number
     }
   },
   data() {
@@ -109,8 +117,8 @@ export default {
   methods: {
     setSize() {
       const params = this.$refs["chart"].getBoundingClientRect();
-      this.width = params.width;
-      this.height = params.height;
+      this.height = this.h ? this.h : params.height;
+      this.width = this.w ? this.w : params.width;
     },
     fitLabels() {
       const chart = this.$refs["chart"];

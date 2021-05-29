@@ -509,6 +509,14 @@ var TrendChart = {
     interactive: {
       default: false,
       type: Boolean
+    },
+    w: {
+      default: null,
+      type: Number
+    },
+    h: {
+      default: null,
+      type: Number
     }
   },
   data: function data() {
@@ -585,8 +593,8 @@ var TrendChart = {
   methods: {
     setSize: function setSize() {
       var params = this.$refs["chart"].getBoundingClientRect();
-      this.width = params.width;
-      this.height = params.height;
+      this.height = this.h ? this.h : params.height;
+      this.width = this.w ? this.w : params.width;
     },
     fitLabels: function fitLabels() {
       var chart = this.$refs["chart"];
@@ -643,8 +651,10 @@ var TrendChart = {
       );
     },
     mouseMove: function mouseMove(e) {
-      var rect = this.$refs.chart.getBoundingClientRect();
-      this.activeLine = this.getNearestCoordinate(e.clientX - rect.left);
+      if (this.$refs.chart !== undefined) {
+        var rect = this.$refs.chart.getBoundingClientRect();
+        this.activeLine = this.getNearestCoordinate(e.clientX - rect.left);
+      }
     },
     mouseOut: function mouseOut() {
       this.activeLine = null;
