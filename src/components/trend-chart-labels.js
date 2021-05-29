@@ -20,6 +20,14 @@ export default {
     yLabelsTextFormatter: {
       default: value => value,
       type: Function
+    },
+    xLabelH: {
+      default: null,
+      type: Number
+    },
+    yLabelH: {
+      default: null,
+      type: Number
     }
   },
   data() {
@@ -46,14 +54,16 @@ export default {
   },
   mounted() {
     if (this.xLabels && this.xLabels.length) {
-      this.xLabelHeight = this.$refs.xLabels
-        .querySelector("text")
-        .getBoundingClientRect().height;
+      this.xLabelHeight = this.xLabelH
+        ? this.xLabelH
+        : this.$refs.xLabels.querySelector("text").getBoundingClientRect()
+            .height;
     }
     if (this.yLabels && this.yLabels > 0) {
-      this.yLabelHeight = this.$refs.yLabels
-        .querySelector("text")
-        .getBoundingClientRect().height;
+      this.yLabelHeight = this.yLabelH
+        ? this.yLabelH
+        : this.$refs.yLabels.querySelector("text").getBoundingClientRect()
+            .height;
     }
   },
   render(h) {
@@ -88,7 +98,7 @@ export default {
                   "text",
                   {
                     attrs: {
-                      dy: this.xLabelHeight + 5,
+                      dy: this.xLabelHeight + 20,
                       "text-anchor": "middle"
                     }
                   },
