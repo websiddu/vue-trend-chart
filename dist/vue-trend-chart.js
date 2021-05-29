@@ -339,7 +339,7 @@
   function genPath (pnts, smooth, ref) {
     var maxY = ref.maxY;
 
-    var points = [].concat( pnts );
+    var points = pnts;
     var start = points.shift();
     var end = points[points.length - 1];
     var distance = points[0].x - start.x;

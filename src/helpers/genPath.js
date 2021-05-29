@@ -1,5 +1,5 @@
 export default (pnts, smooth, { maxY }) => {
-  const points = [...pnts];
+  const points = pnts;
   const start = points.shift();
   const end = points[points.length - 1];
   const distance = points[0].x - start.x;
